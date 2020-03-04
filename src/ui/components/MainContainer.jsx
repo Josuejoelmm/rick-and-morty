@@ -6,19 +6,13 @@ import axios from 'axios'
 
 const MainContainer = () => {
     const [characters, setCharacters] = useState([]);
-    const [dispatch, setDispatch] = useState(1);
-    let contador = 1;
     // const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        axios.get('https://rickandmortyapi.com/api/character/')
-        .then(rest => setCharacters(rest.data.results))
+        // axios.get('https://rickandmortyapi.com/api/character/')
+        // .then(rest => setCharacters(rest.data.results))
+        dummy();
     }, []);
-
-    useEffect(() => {
-        // dummy();
-        console.log('se ejecuta');
-    }, [contador]);
     
     const dummy = async () => {
             const response = await axios.get('https://rickandmortyapi.com/api/character/');
@@ -26,11 +20,11 @@ const MainContainer = () => {
     }
     return( characters.length === 0 && "Loading..." ||
         <section className="main-container">
-            <div>Text in the body</div>
+            <div className="character-wrapper">
                 {
                    characters && characters.map((character, index) => <SingleCardCharacter key={index} data={character} />)
                 }
-            <button onClick={() => {contador = contador + 1}}>traer personajes</button>
+            </div>
         </section>
     )
 };
