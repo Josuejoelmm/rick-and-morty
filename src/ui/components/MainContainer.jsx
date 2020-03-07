@@ -1,31 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import './styles/MainContainer.scss';
 import SingleCardCharacter from './SingleCardCharacter';
-import Context from './Context'
-import axios from 'axios'
+import GlobalState from '../../api/GlobalState';
+import { Link } from 'react-router-dom';
+
 
 const MainContainer = () => {
-    const [characters, setCharacters] = useState([]);
-    // const [loading, setLoading] = useState(true);
+    const charactersState = useContext(GlobalState);
 
-    useEffect(() => {
-        // axios.get('https://rickandmortyapi.com/api/character/')
-        // .then(rest => setCharacters(rest.data.results))
-        dummy();
-    }, []);
-    
-    const dummy = async () => {
-            const response = await axios.get('https://rickandmortyapi.com/api/character/');
-            setCharacters(response.data.results);
-    }
-    return( characters.length === 0 && "Loading..." ||
+    console.log(charactersState, 'finalData');
+    return (
         <section className="main-container">
             <div className="character-wrapper">
                 {
-                   characters && characters.map((character, index) => <SingleCardCharacter key={index} data={character} />)
+                    !!charactersState._characters &&
+                        charactersState._characters.map((character, index) => {
+                            return( 
+                            <Link
+                                className="link-character"
+                                to={`characters/${character.id}`}
+                            >
+                                <SingleCardCharacter key={index} data={character} />
+                            </Link>
+                            )
+                        }
+                        )
                 }
             </div>
         </section>
+
+
+
+        // characters.length === 0 && "Loading..." ||
+
     )
 };
 

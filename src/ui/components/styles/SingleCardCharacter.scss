@@ -1,9 +1,9 @@
 $cardWidth: 220px;
 .card-container {
-    background-color: green;
     max-width: $cardWidth;
     position: relative;
     display: flex;
+    margin-bottom: 20px;
     .card-inner-container {
         width: 100%;
         position: relative;
