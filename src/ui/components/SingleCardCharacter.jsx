@@ -2,7 +2,6 @@ import React from 'react';
 import './styles/SingleCardCharacter.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons/faStar';
-import Context from './Context';
 
 const SingleCardCharacter = (props) => {
     const data = props.data;

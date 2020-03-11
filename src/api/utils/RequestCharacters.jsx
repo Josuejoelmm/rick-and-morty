@@ -6,7 +6,7 @@ const RequestCharacter = async () => {
         const response = fetch.data.results;
         return response;
     } catch (error) {
-        throw new Error(error);
+        console.log('error fetch api');
     }
 }
 

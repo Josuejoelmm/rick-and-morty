@@ -5,7 +5,6 @@ import Provider from './api/Provider';
 import CharacterDetails from './ui/components/CharacterDetails';
 import Layout from './ui/layout/Layout';
 
-
 function App() {
 	return (
 		<BrowserRouter>
