@@ -3,13 +3,15 @@ import RequestCharacter from './utils/RequestCharacters';
 import GlobalState from './GlobalState'
 const Provider = ({ children }) => {
     const [characters, setCharacters] = useState([]);
-
+    const [query, setQuery] = useState('');
     useEffect(() => {
         RequestCharacter().then((res)=> setCharacters(res));
     },[]);
 
     const value = {
-        _characters: characters
+        _characters: characters,
+        query: query,
+        setQuery: setQuery
     }
 
     return (
