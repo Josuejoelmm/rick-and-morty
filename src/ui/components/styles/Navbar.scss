@@ -4,12 +4,12 @@
     justify-content: center;
     nav {
         display: flex;
-        justify-content: space-between;
         align-items: center;
         width: 95%;
         min-height: 53px;
         padding: 4px 0;
         .logo-nav {
+            margin-right: 10px;
             div {
                 display: flex;
                 max-width: 115px;
@@ -22,6 +22,9 @@
     }
 }
 .nav-search {
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 70%;
     div {
         display: flex;
         align-items: center;
@@ -37,7 +40,9 @@
             align-items: center;
         }
         .input-container {
+            width: 100%;
             input {
+                width: 100%;
                 padding: 8px 8px 8px 60px;
                 border-radius: 5px;
                 border: none;
@@ -45,4 +50,8 @@
             }
         }
     }
+}
+.separator {
+    border: 1px solid #dadada;
+    height: 73%;
 }

@@ -1,12 +1,14 @@
-$cardWidth: 220px;
+$cardWidth: 100%;
 .card-container {
     max-width: $cardWidth;
     position: relative;
     display: flex;
     margin-bottom: 20px;
+    padding: 0 5%;
     .card-inner-container {
         width: 100%;
         position: relative;
+        color: #ffffff;
         figure {
             margin: 0;
             padding: 0;
@@ -19,11 +21,18 @@ $cardWidth: 220px;
         }
         .character-name {
             position: absolute;
-            bottom: 20px;
-            left: 20px;
+            bottom: 0;
+            left: 0;
+            padding: 5% 0 6% 0;
+            width: 100%;
+            background-image: -webkit-linear-gradient(0deg, rgba(2,0,36,0.865983893557423) 0%, rgba(255,255,255,0) 100%);
+            background-image: -moz-linear-gradient(0deg, rgba(2,0,36,0.865983893557423) 0%, rgba(255,255,255,0) 100%);
+            background-image: -o-linear-gradient(0deg, rgba(2,0,36,0.865983893557423) 0%, rgba(255,255,255,0) 100%);
+            background-image: linear-gradient(0deg, rgba(2,0,36,0.865983893557423) 0%, rgba(255,255,255,0) 100%);
             h6 {
-                font-size: 20px;
+                font-size: 1rem;
                 margin: 0;
+                padding-left: 0.5em;
             }
         }
         .character-star {

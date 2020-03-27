@@ -1,15 +1,36 @@
 .main-container {
-    background: #80808014;
     padding: 3%;
 }
 .main-container {
     .character-wrapper {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-around;
     }
 }
 .link-character {
     text-decoration: none;
-    color: black;
+    width: 25%;
+}
+.loading-cards {
+    width: 100%;
+    text-align: center;
+    font-size: 32px;
+}
+@media (max-width: 992px) {
+    .link-character {
+        width: 33.33%;
+    }
+}
+@media (max-width: 992px) {
+    .link-character {
+        width: 33.33%;
+    }
+}
+@media (max-width: 576px) {
+    .main-container .character-wrapper {
+        justify-content: center;
+    }
+    .link-character {
+        width: 75%;
+    }
 }

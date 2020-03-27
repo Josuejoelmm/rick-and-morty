@@ -1,29 +1,25 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
 import './styles/Navbar.scss';
 import logo from '../images/logo-img.png';
-import GlobalState from '../../api/GlobalState'
-
-
+import GlobalState from '../../api/GlobalState';
 
 const Navbar = () => {
     const charactersState = useContext(GlobalState);
     const { query, setQuery } = charactersState;
-    // const [query, setQuery] = useState('');
-
-    const filterCharacterSearched = null;
-
-    // console.log(charactersState, 'NAVBAR');
 
     return (
         <header className="header-container">
             <nav>
-                <div className="logo-nav">
-                    <div>
-                        <img src={logo} alt="" />
+                <Link to="/">
+                    <div className="logo-nav">
+                        <div>
+                            <img src={logo} alt="" />
+                        </div>
                     </div>
-                </div>
+                </Link>
                 <div className="separator"></div>
                 <div className="nav-search">
                     <div>
@@ -34,7 +30,6 @@ const Navbar = () => {
                             <input type="text" placeholder="Search" 
                                 value={query}
                                 onChange={(e) => {
-                                    console.log(query);
                                     setQuery(e.target.value);
                                 }}
                             />

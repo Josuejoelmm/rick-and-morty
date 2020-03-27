@@ -1,7 +1,46 @@
 .character-profile-container {
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-    margin: 2%;
-    border: 2px solid gray;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: 4%;
+    .character-image {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        div {
+            display: flex;
+            border-radius: 20px;
+            border: 2px solid #91cf96;
+            overflow: hidden;
+            img {
+                width: 100%;
+            }
+        }
+    }
+    .character-info {
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+.loading-text {
+    padding: 5%;
+    text-align: center;
+    font-size: 32px;
+}
+@media (max-width: 576px) {
+    .character-profile-container {
+        align-items: center;
+    }
+    .character-image > div {
+        width: 60%;
+    }
+    .character-profile-container .character-info {
+        padding-left: 0px;
+        text-align: center;
+        ul {
+            padding: 0;
+            list-style-position: inside;
+        }
+    }
 }

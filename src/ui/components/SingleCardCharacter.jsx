@@ -22,5 +22,4 @@ const SingleCardCharacter = (props) => {
     );
 }
 
-
 export default SingleCardCharacter;

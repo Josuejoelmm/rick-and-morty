@@ -10,6 +10,7 @@ const Provider = ({ children }) => {
 
     const value = {
         _characters: characters,
+        setCharacters: setCharacters,
         query: query,
         setQuery: setQuery
     }
