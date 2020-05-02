@@ -1,0 +1,39 @@
+.fav-inbox {
+    position: absolute;
+    top: 34px;
+    right: -10px;
+    z-index: 99999999;
+    width: 300px;
+    background: #94ccd0;
+    border-radius: 5px;
+    padding: 10px;
+    color: #ffffff;
+    -webkit-box-shadow: 0px 0px 22px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 22px -10px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 22px -10px rgba(0,0,0,0.75);
+    .fav-inbox-inner {
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style-position: inside;
+        }
+    }
+}
+.pointer-box {
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    width: 0;
+    height: 0;
+    border-right: 8px solid #00000000;
+    border-left: 8px solid #00000000;
+    border-bottom: 12px solid #94ccd0;
+}
+.hidden {
+    display: none;
+}
+@media (max-width: 360px) {
+    .fav-inbox {
+        max-width: 230px;
+    }
+}
