@@ -9,6 +9,9 @@ $cardWidth: 100%;
         width: 100%;
         position: relative;
         color: #ffffff;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: 0.5s;
         figure {
             margin: 0;
             padding: 0;
@@ -40,5 +43,10 @@ $cardWidth: 100%;
             top: 10px;
             right: 20px;
         }
+    }
+    .card-inner-container:hover {
+        -webkit-box-shadow: 12px 11px 14px -11px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 12px 11px 14px -11px rgba(0, 0, 0, 0.75);
+        box-shadow: 12px 11px 14px -11px rgba(0, 0, 0, 0.75);
     }
 }

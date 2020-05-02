@@ -1,4 +1,6 @@
 .fav-inbox {
+    opacity: 1;
+    transition: 0.5s;
     position: absolute;
     top: 34px;
     right: -10px;
@@ -36,7 +38,8 @@
     border-bottom: 12px solid #94ccd0;
 }
 .hidden {
-    display: none;
+    opacity: 0;
+    visibility: hidden;
 }
 @media (max-width: 360px) {
     .fav-inbox {
