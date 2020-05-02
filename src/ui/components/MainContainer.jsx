@@ -1,14 +1,15 @@
 import React, { useContext, useState } from 'react';
 import './styles/MainContainer.scss';
 import SingleCardCharacter from './SingleCardCharacter';
+import StarIconFav from './StarIconFav';
 import GlobalState from '../../api/GlobalState';
-import { Link } from 'react-router-dom';
+import SingleSkeletonCard from './SingleSkeletonCard';
 
-const MainContainer = () => {
+const MainContainer = (props) => {
     const charactersState = useContext(GlobalState);
     const { query, _characters } = charactersState;
     const [filterSearchedCharacter, setFilterSearchedCharacter] = useState(_characters);
-    
+
     React.useMemo(() => {
         const result = _characters.filter(character => {
             return character.name.toLowerCase().includes(query.toLowerCase());
@@ -16,23 +17,29 @@ const MainContainer = () => {
         
         setFilterSearchedCharacter(result);
     }, [_characters, query]);
-        
+    
     return (
         <section className="main-container">
             <div className="character-wrapper">
                 {
-                    (!!filterSearchedCharacter.length &&
-                    filterSearchedCharacter.map((character, i, arr) => {
-                            return( 
-                            <Link
-                                className="link-character"
-                                to={`characters/${character.id}`}
-                                key={character.id}
-                            >
-                                <SingleCardCharacter data={character} />
-                            </Link>
+                    (!_characters.length 
+                        ? <SingleSkeletonCard />
+                        : !!filterSearchedCharacter.length 
+                        ? filterSearchedCharacter.map((character) => {
+                            return(
+                                <div className="inner-character" key={character.id}>
+                                    <SingleCardCharacter 
+                                        data={character} 
+                                    />
+                                    <StarIconFav
+                                        key={character.id} 
+                                        character={character}
+                                    />
+                                </div>
                             )
-                    })) || (!!query.length && <div className="loading-cards">No existe un Personaje con ese nombre</div>)
+                          }) 
+                        : <div className="loading-cards">There isn't a character with that name.</div>
+                    )
                 }
             </div>
         </section>

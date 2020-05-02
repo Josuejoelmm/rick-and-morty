@@ -7,30 +7,64 @@
         flex-wrap: wrap;
     }
 }
+.inner-character {
+    position: relative;
+    width: 25%;
+}
+.fav-star {
+    display: flex;
+    position: absolute;
+    right: 24px;
+    top: 7px;
+    color: #ffffff;
+    cursor: pointer;
+}
 .link-character {
     text-decoration: none;
-    width: 25%;
 }
 .loading-cards {
     width: 100%;
     text-align: center;
     font-size: 32px;
 }
-@media (max-width: 992px) {
-    .link-character {
-        width: 33.33%;
+.skeleton-inner-character {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    .skeleton-card-container {
+        width: 25%;
+        position: relative;
+        .skeleton-container {
+            margin-bottom: 20px;
+            padding: 0 5%;
+            .skeleton {
+                min-height: 248px;
+                background: #d0d0d0;
+            }
+        }
     }
 }
+.loading-mage {
+    height: 248px;
+    background: #d0d0d0;
+}
+
 @media (max-width: 992px) {
-    .link-character {
+    .skeleton-inner-character .skeleton-card-container {
+        width: 33.33% !important;
+    }
+    .inner-character {
         width: 33.33%;
     }
 }
 @media (max-width: 576px) {
-    .main-container .character-wrapper {
+    .main-container .character-wrapper, .skeleton-inner-character {
         justify-content: center;
     }
-    .link-character {
+    .skeleton-inner-character .skeleton-card-container {
+        width: 75% !important;
+    }
+    .inner-character {
         width: 75%;
     }
 }

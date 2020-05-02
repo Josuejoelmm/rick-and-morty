@@ -1,25 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
 import './styles/SingleCardCharacter.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar } from '@fortawesome/free-solid-svg-icons/faStar';
 
 const SingleCardCharacter = (props) => {
-    const data = props.data;
+    const styles = {cursor: 'pointer'}
+    const {data} = props;
+    const [imageLoaded, setImageLoaded] = useState(false);
+
+    const updateImageStatus = () => {
+        setImageLoaded(true);
+    }
+    const goToCharacterDetailsPage = () => {
+        props.history.push(`characters/${data.id}`)
+    }
+
     return(
-        <div className="card-container">
+        <div style={styles} onClick={goToCharacterDetailsPage} className="card-container">
             <div className="card-inner-container">
-                <figure>
-                    <img src={data.image} alt="" />
+                <figure className={!imageLoaded ? "loading-mage" : null}>
+                    <img src={data.image} alt="" onLoad={updateImageStatus} />
                 </figure>
                 <div className="character-name">
                     <h6>{data.name}</h6>
-                </div>
-                <div className="character-star">
-                    <FontAwesomeIcon icon={faStar} />
                 </div>
             </div>
         </div>
     );
 }
 
-export default SingleCardCharacter;
+export default withRouter(SingleCardCharacter);

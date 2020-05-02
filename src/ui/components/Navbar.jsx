@@ -1,12 +1,14 @@
 import React, { useContext } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
 import './styles/Navbar.scss';
 import logo from '../images/logo-img.png';
 import GlobalState from '../../api/GlobalState';
+import NavFavoritesContainer from './NavFavoritesContainer';
 
-const Navbar = () => {
+const Navbar = (props) => {
     const charactersState = useContext(GlobalState);
     const { query, setQuery } = charactersState;
 
@@ -37,9 +39,14 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="separator"></div>
+                <NavFavoritesContainer favorites={props.favorites} />
             </nav>
         </header>
     );
 }
 
-export default Navbar;
+export default connect(state => {
+    return {
+        favorites: state.favorites
+    }
+}, null)(Navbar);
