@@ -1,5 +1,5 @@
 # Rick and Morty's character React app &#x1F468;&#x200D;&#x1F4BB;
-### [Visit my Rick and Morty app](https://ww)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d1b17eef-6239-4bbc-90e8-67c0927def16/deploy-status)](https://josuejmm-rick-and-morty.netlify.app)
 
 -------------------------------------------------------
 
