@@ -48,7 +48,7 @@ const CharacterDetails = (props) => {
 
     return(
         (!!Object.keys(characterDetails).length && 
-            <div className="character-profile-container">
+            <div className="main-container character-profile-container">
                 <div className="character-image">
                     <div>
                         <img src={characterDetails.image} alt="Profile"/>
@@ -77,7 +77,7 @@ const CharacterDetails = (props) => {
                 
                     </div>
                 </div>
-            </div>) ||  <div className="loading-text">Loading...</div>
+            </div>) ||  <div className="main-container loading-text">Loading...</div>
     )
 };
 

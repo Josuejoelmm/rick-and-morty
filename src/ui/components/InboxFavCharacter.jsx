@@ -11,7 +11,7 @@ const InboxFavCharacter = (props) => {
             props.history.push(`/characters/${props.favCharacter.id}`);
         }
     }
-    return(<li onClick={goToDetailsCharacter} style={styles}>{props.favCharacter.name}</li>);
+    return(<li onClick={goToDetailsCharacter} style={styles}>- {props.favCharacter.name}</li>);
 };
 
 export default withRouter(InboxFavCharacter);

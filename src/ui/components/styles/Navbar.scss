@@ -2,6 +2,10 @@
     background-color: #ffffff;
     display: flex;
     justify-content: center;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    border-bottom: 1px solid gray;
     nav {
         display: flex;
         align-items: center;

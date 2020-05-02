@@ -2,7 +2,6 @@
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: 4%;
     .character-image {
         display: flex;
         justify-content: center;
@@ -34,7 +33,6 @@
     }
 }
 .loading-text {
-    padding: 5%;
     text-align: center;
     font-size: 32px;
 }

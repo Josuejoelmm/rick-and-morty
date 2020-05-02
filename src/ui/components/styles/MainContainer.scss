@@ -1,5 +1,5 @@
 .main-container {
-    padding: 3%;
+    padding: 80px 3% 3%;
 }
 .main-container {
     .character-wrapper {
@@ -57,6 +57,11 @@
         width: 33.33%;
     }
 }
+@media (max-width: 768px) {
+    .skeleton-inner-character .skeleton-card-container .skeleton-container .skeleton {
+        min-height: 187px !important;
+    }
+}
 @media (max-width: 576px) {
     .main-container .character-wrapper, .skeleton-inner-character {
         justify-content: center;
@@ -66,5 +71,8 @@
     }
     .inner-character {
         width: 75%;
+    }
+    .skeleton-inner-character .skeleton-card-container .skeleton-container .skeleton {
+        min-height: 180px !important;
     }
 }
