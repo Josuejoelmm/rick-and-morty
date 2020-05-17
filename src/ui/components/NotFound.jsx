@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles/NotFound.scss';
 import { Link } from 'react-router-dom';
-import snowball from '../../ui/images/snowball.png';
+import snowball from '../images/snowball.png';
 
 const NotFound = () => (
     <div className="main-404-container">
