@@ -22,6 +22,7 @@ const NavFavoritesContainer = (props) => {
         return () => {
             window.removeEventListener('touchstart', globalTouchEvent);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const viewFavoritesInbox = (e) => {

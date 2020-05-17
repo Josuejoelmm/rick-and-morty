@@ -11,27 +11,41 @@ const CharacterDetails = (props) => {
     
     useEffect(() => {
         const requestDetailsCharacter = async () => {
-            const URL_CurrentCharacter = `https://rickandmortyapi.com/api/character/${idCharacter}`;
-            const fetch = await axios.get(URL_CurrentCharacter);
-            const response = fetch.data;
-            return response;
-        }
+            try {
+                const URL_CurrentCharacter = `https://rickandmortyapi.com/api/character/${idCharacter}`;
+                const fetch = await axios.get(URL_CurrentCharacter);
+                const response = fetch.data;
+                return response;
+            } catch (error) {
+                console.log('error requesting a character', error);
+            }
+        };
         const requestEpisodes = async episodes => {
-            episodes.map(async (url, i, array) => {
-                makeRequestEpisodes(url).then(response => {
-                episodesPack.push(response);
-                if(episodesPack.length === array.length) {
-                    setEpisodesLoaded(true);
-                }
+            try {
+                episodes.map(async (url, i, array) => {
+                    makeRequestEpisodes(url)
+                        .then(response => {
+                            episodesPack.push(response);
+                            if(episodesPack.length === array.length) {
+                                setEpisodesLoaded(true);
+                            }
+                    });
                 });
-            });
-            return episodesPack;
-        }
+                return episodesPack;
+            } catch (error) {
+                console.log(error);
+            }
+            
+        };
         const makeRequestEpisodes = async episode => {
-            let request = await axios.get(episode);
-            let response = request.data;
-            return response
-        } 
+            try {
+                let request = await axios.get(episode);
+                let response = request.data;
+                return response;
+            } catch (error) {
+                console.log('error requesting episodes', error);
+            }    
+        };
 
         requestDetailsCharacter()
             .then(response => {
