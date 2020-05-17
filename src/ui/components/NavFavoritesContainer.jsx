@@ -29,13 +29,13 @@ const NavFavoritesContainer = (props) => {
         if (e.target.parentElement && e.target.parentElement.parentElement && e.target.parentElement.parentElement.className && e.target.parentElement.parentElement.className === 'nav-favorites') {
             setHiddenInbox(true);
         }
-    }
+    };
     const hideFavoritesInbox = (e) => {
         setHiddenInbox(false);
-    }
+    };
     const openFavoritesInbox = (e) => {
         setHiddenInbox(true);
-    }
+    };
     
     return (
         <div onClick={openFavoritesInbox} onMouseEnter={viewFavoritesInbox} className="nav-favorites">
