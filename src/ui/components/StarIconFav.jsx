@@ -1,5 +1,5 @@
 import React from 'react';
-import regStar from '../images/star-regular.png';
+// import regStar from '../images/star-regular.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { connect } from 'react-redux';
