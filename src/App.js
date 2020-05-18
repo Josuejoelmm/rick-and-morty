@@ -17,7 +17,7 @@ function App() {
 						<Switch>
 							<Route exact path="/" component={MainContainer} />
 							<Route path="/characters/:characterId" component={CharacterDetails} />
-							<Route path="*" component={NotFound} />
+							<Route component={NotFound} />
 						</Switch>
 					</Layout>
 				</Provider>

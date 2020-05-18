@@ -1,7 +1,7 @@
 import React from 'react';
 import './styles/NotFound.scss';
 import { Link } from 'react-router-dom';
-import snowball from '../images/snowball.png';
+// import snowball from '../images/snowball.png';
 
 const NotFound = () => (
     <div className="main-404-container">
@@ -12,7 +12,7 @@ const NotFound = () => (
             </div>
             <div className="image-404-container">
                 <figure>
-                    <img src={snowball} alt="not found" />
+                    {/* <img src={snowball} alt="not found" /> */}
                 </figure>
             </div>
             <Link to="/" className="back-home-button">Back to Home</Link>
