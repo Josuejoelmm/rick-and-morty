@@ -13,7 +13,8 @@ const StarIconFav = (props) => {
         <div onClick={addFavorites} className="fav-star">
             {
                 !props.favId.includes(props.character.id) ? 
-                <img src={regStar} alt="star"/> :
+                // <img src={regStar} alt="star"/>
+                null :
                 <FontAwesomeIcon icon={faStar} />
             }
         </div>
