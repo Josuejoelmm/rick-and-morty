@@ -1,5 +1,5 @@
 # Rick and Morty's character React app &#x1F468;&#x200D;&#x1F4BB;
-[![Netlify Status](https://api.netlify.com/api/v1/badges/32ecb0b0-8d85-4140-b5da-d08d2dac2951/deploy-status)](https://app.netlify.com/sites/josuejoelm-rick-and-morty/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/32ecb0b0-8d85-4140-b5da-d08d2dac2951/deploy-status)](https://josuejoelm-rick-and-morty.netlify.app/)
 
 -------------------------------------------------------
 
