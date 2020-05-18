@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
 import './styles/Navbar.scss';
-import logo from '../images/logo-img.png';
+// import logo from '../images/logo-img.png';
 import GlobalState from '../../api/GlobalState';
 import NavFavoritesContainer from './NavFavoritesContainer';
 
@@ -18,7 +18,7 @@ const Navbar = (props) => {
                 <Link to="/">
                     <div className="logo-nav">
                         <div>
-                            <img src={logo} alt="" />
+                            {/* <img src={logo} alt="" /> */}
                         </div>
                     </div>
                 </Link>
