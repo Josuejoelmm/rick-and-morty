@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import favIcon from '../images/fav-icon.png';
+// import favIcon from '../images/fav-icon.png';
 import FavoritesInbox from './FavoritesInbox';
 
 const NavFavoritesContainer = (props) => {
@@ -40,7 +40,7 @@ const NavFavoritesContainer = (props) => {
     return (
         <div onClick={openFavoritesInbox} onMouseEnter={viewFavoritesInbox} className="nav-favorites">
             <div className="inner-nav-fav">
-                <img src={favIcon} alt=""/>
+                {/* <img src={favIcon} alt=""/> */}
                 {
                     props.favorites.length > 0 && <span>{props.favorites.length}</span>
                 }
