@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import './styles/FavoritesInbox.scss';
 import InboxFavCharacter from './InboxFavCharacter';
 
-const FavoritesInbox = (props) => {
-        
+const FavoritesInbox = (props) => {   
     return(
         <div onMouseLeave={props.hideFavoritesInbox} className={`fav-inbox ${!props.hiddenInbox ? "hidden" : ""}`} aria-hidden="true">
             <div className="fav-inbox-inner">

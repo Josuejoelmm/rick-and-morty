@@ -12,7 +12,6 @@ const CharacterDetails = (props) => {
         const requestDetailsCharacter = async () => {
             try {
                 const URL_CurrentCharacter = `/character/${idCharacter}`;
-                console.log('REQUESTING NEW CHARACTER');
                 const fetch = await axios.get(URL_CurrentCharacter);
                 const response = fetch.data;
                 return response;
@@ -66,14 +65,13 @@ const CharacterDetails = (props) => {
                         <p>ORIGIN: {characterDetails.origin.name}</p>
                         <p>Last location: {characterDetails.location.name}</p>
                         <p>EPISODE APPEARANCES: {characterDetails.episode.length}</p>
-                    <ul>
-                        { 
-                            (!!episodesName.length && episodesName.map(episode => (
-                                <li key={`${characterDetails.name}-${episode.name}`}>Episode {episode.id}: "{episode.name}"</li>
-                            )) ) || 'Loading Episodes...'
-                        }
-                    </ul>
-                
+                        <ul>
+                            { 
+                                (!!episodesName.length && episodesName.map(episode => (
+                                    <li key={`${characterDetails.name}-${episode.name}`}>Episode {episode.id}: "{episode.name}"</li>
+                                )) ) || 'Loading Episodes...'
+                            }
+                        </ul>
                     </div>
                 </div>
             </div>) ||  <div className="main-container loading-text">Loading...</div>
