@@ -1,18 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import './styles/CharacterDetails.scss';
-import axios from 'axios';
+import axios from '../../helper/axios';
+import Axios from 'axios';
 
 const CharacterDetails = (props) => {
     const [ characterDetails, setCharacterDetails ] = useState({});
     const [ episodesName, setEpisodesName ] = useState([]);
-    let [episodesLoaded, setEpisodesLoaded] = useState(false);
-    let episodesPack = [];
     let idCharacter = props.match.params.characterId;
     
     useEffect(() => {
         const requestDetailsCharacter = async () => {
             try {
-                const URL_CurrentCharacter = `https://rickandmortyapi.com/api/character/${idCharacter}`;
+                const URL_CurrentCharacter = `/character/${idCharacter}`;
                 const fetch = await axios.get(URL_CurrentCharacter);
                 const response = fetch.data;
                 return response;
@@ -20,43 +19,28 @@ const CharacterDetails = (props) => {
                 console.log('error requesting a character', error);
             }
         };
-        const requestEpisodes = async episodes => {
-            try {
-                episodes.map(async (url, i, array) => {
-                    makeRequestEpisodes(url)
-                        .then(response => {
-                            episodesPack.push(response);
-                            if(episodesPack.length === array.length) {
-                                setEpisodesLoaded(true);
-                            }
-                    });
-                });
-                return episodesPack;
-            } catch (error) {
-                console.log(error);
-            }
-            
-        };
-        const makeRequestEpisodes = async episode => {
-            try {
-                let request = await axios.get(episode);
-                let response = request.data;
-                return response;
-            } catch (error) {
-                console.log('error requesting episodes', error);
-            }    
+        const requestEpisodes = episodes => {
+            const promises = episodes.map(episodesUrl => {
+                return Axios.get(episodesUrl);
+            })
+            return promises;
         };
 
         requestDetailsCharacter()
             .then(response => {
                 setCharacterDetails(response);
-                requestEpisodes(response.episode)
-                    .then(response => {
-                        setEpisodesName(response);
-                    }); 
+                Promise.all(requestEpisodes(response.episode))
+                    .then(episodes => {
+                        episodes.forEach(episode => {
+                            setEpisodesName(prevState => [...prevState, episode.data])
+                        });
+                    })
+                
             });
         
-        return () => { setEpisodesLoaded(false); }
+        return () => { 
+            setEpisodesName([]);
+        }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [idCharacter]);
 
@@ -81,14 +65,13 @@ const CharacterDetails = (props) => {
                         <p>ORIGIN: {characterDetails.origin.name}</p>
                         <p>Last location: {characterDetails.location.name}</p>
                         <p>EPISODE APPEARANCES: {characterDetails.episode.length}</p>
-                    <ul>
-                        { 
-                            (episodesLoaded && episodesName.map(episode => (
-                                <li key={`${characterDetails.name}-${episode.name}`}>Episode {episode.id}: "{episode.name}"</li>
-                            )) ) || 'Loading Episodes...'
-                        }
-                    </ul>
-                
+                        <ul>
+                            { 
+                                (!!episodesName.length && episodesName.map(episode => (
+                                    <li key={`${characterDetails.name}-${episode.name}`}>Episode {episode.id}: "{episode.name}"</li>
+                                )) ) || 'Loading Episodes...'
+                            }
+                        </ul>
                     </div>
                 </div>
             </div>) ||  <div className="main-container loading-text">Loading...</div>
