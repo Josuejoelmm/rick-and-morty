@@ -29,7 +29,7 @@ const Navbar = (props) => {
                             <FontAwesomeIcon icon={faSearch} />
                         </div>
                         <div className="input-container">
-                            <input type="text" placeholder="Search" 
+                            <input type="text" placeholder="Filter" 
                                 value={query}
                                 onChange={(e) => {
                                     setQuery(e.target.value);

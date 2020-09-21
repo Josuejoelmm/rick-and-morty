@@ -4,6 +4,7 @@ import SingleCardCharacter from './SingleCardCharacter';
 import StarIconFav from './StarIconFav';
 import GlobalState from '../../api/GlobalState';
 import SingleSkeletonCard from './SingleSkeletonCard';
+import LoadMoreCharacters from './LoadMoreCharacters';
 
 const MainContainer = (props) => {
     const charactersState = useContext(GlobalState);
@@ -20,6 +21,7 @@ const MainContainer = (props) => {
     
     return (
         <section className="main-container">
+            <LoadMoreCharacters />  
             <div className="character-wrapper">
                 {
                     (!_characters.length 
