@@ -47,32 +47,36 @@ const CharacterDetails = (props) => {
     return(
         (!!Object.keys(characterDetails).length && 
             <div className="main-container character-profile-container">
-                <div className="character-image">
-                    <div>
-                        <img src={characterDetails.image} alt="Profile"/>
+                <div className="main-ch-info">
+                    <div className="character-image">
+                        <div>
+                            <img src={characterDetails.image} alt="Profile"/>
+                        </div>
+                    </div>
+                    <div className="character-info">
+                        <div>
+                            <p>NAME: {characterDetails.name}</p>
+                            <p>STATUS: {characterDetails.status}</p>
+                            <p>ESPECIES: {characterDetails.species}</p>
+                            {
+                                characterDetails.type && 
+                                <p>TYPE: {characterDetails.type}</p>
+                            }
+                            <p>GENRE: {characterDetails.gender}</p>
+                            <p>ORIGIN: {characterDetails.origin.name}</p>
+                            <p>Last location: {characterDetails.location.name}</p>
+                        </div>
                     </div>
                 </div>
-                <div className="character-info">
-                    <div>
-                        <p>NAME: {characterDetails.name}</p>
-                        <p>STATUS: {characterDetails.status}</p>
-                        <p>ESPECIES: {characterDetails.species}</p>
-                        {
-                            characterDetails.type && 
-                            <p>TYPE: {characterDetails.type}</p>
+                <div className="episodes-container">
+                    <p className="episodes-title">EPISODE APPEARANCES: {characterDetails.episode.length}</p>
+                    <ul>
+                        { 
+                            (!!episodesName.length && episodesName.map(episode => (
+                                <li className="list-episode" key={`${characterDetails.name}-${episode.name}`}>Episode {episode.id}: "{episode.name}"</li>
+                            )) ) || 'Loading Episodes...'
                         }
-                        <p>GENRE: {characterDetails.gender}</p>
-                        <p>ORIGIN: {characterDetails.origin.name}</p>
-                        <p>Last location: {characterDetails.location.name}</p>
-                        <p>EPISODE APPEARANCES: {characterDetails.episode.length}</p>
-                        <ul>
-                            { 
-                                (!!episodesName.length && episodesName.map(episode => (
-                                    <li key={`${characterDetails.name}-${episode.name}`}>Episode {episode.id}: "{episode.name}"</li>
-                                )) ) || 'Loading Episodes...'
-                            }
-                        </ul>
-                    </div>
+                    </ul>
                 </div>
             </div>) ||  <div className="main-container loading-text">Loading...</div>
     )

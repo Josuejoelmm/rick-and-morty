@@ -1,15 +1,19 @@
 .main-container {
-    padding: 80px 3% 3%;
-}
-.main-container {
+    padding: 80px 3% 55px;
+    position: relative;
+    overflow: hidden;
     .character-wrapper {
         display: flex;
         flex-wrap: wrap;
+        max-height: 75vh;
+        overflow: auto;
+        width: 100%;
+        padding-right: 120px;
     }
 }
 .inner-character {
     position: relative;
-    width: 25%;
+    width: 16.66%;
 }
 .fav-star {
     display: flex;

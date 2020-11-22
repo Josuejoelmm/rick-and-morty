@@ -1,19 +1,19 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import GlobalState from '../../api/GlobalState';
+import './styles/LoadMoreCharacters.scss';
 
 function LoadMoreCharacters() {
-    const [characterPageToLoad, setCharacterPageToLoad] = useState(2);
     const contextState = useContext(GlobalState);
-    const { _characters, setCharacters } = contextState;
+    const { _characters, setCharacters, pagesInfo, setPagesInfo } = contextState;
     const fetchMoreCharacters = () => {
-        fetch(`https://rickandmortyapi.com/api/character/?page=${characterPageToLoad.toString()}`)
+        fetch(pagesInfo.next)
             .then(res => res.json())
             .then(data => {
                 setCharacters(_characters.concat(data.results));
-                setCharacterPageToLoad(characterPageToLoad + 1);
+                setPagesInfo(data.info);
             });
     }
-    return <button onClick={fetchMoreCharacters}>Load more</button>
+    return <button className="bt-load-more" onClick={fetchMoreCharacters}>Load more</button>
 }
 
 export default LoadMoreCharacters;

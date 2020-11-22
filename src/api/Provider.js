@@ -3,16 +3,22 @@ import RequestCharacter from './utils/RequestCharacters';
 import GlobalState from './GlobalState'
 const Provider = ({ children }) => {
     const [characters, setCharacters] = useState([]);
+    const [pagesInfo, setPagesInfo] = useState({});
     const [query, setQuery] = useState('');
     useEffect(() => {
-        RequestCharacter().then((res)=> setCharacters(res));
+        RequestCharacter().then((res)=> {
+            setCharacters(res.results);
+            setPagesInfo(res.info);
+        });
     },[]);
 
     const value = {
         _characters: characters,
-        setCharacters: setCharacters,
-        query: query,
-        setQuery: setQuery
+        pagesInfo,
+        setPagesInfo,
+        setCharacters,
+        query,
+        setQuery
     }
 
     return (

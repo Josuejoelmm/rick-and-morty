@@ -21,7 +21,6 @@ const MainContainer = (props) => {
     
     return (
         <section className="main-container">
-            <LoadMoreCharacters />  
             <div className="character-wrapper">
                 {
                     (!_characters.length 
@@ -44,6 +43,7 @@ const MainContainer = (props) => {
                     )
                 }
             </div>
+            <LoadMoreCharacters />
         </section>
     )
 };
