@@ -36,13 +36,13 @@
     flex-wrap: wrap;
     width: 100%;
     .skeleton-card-container {
-        width: 25%;
+        width: 16.66%;
         position: relative;
         .skeleton-container {
             margin-bottom: 20px;
             padding: 0 5%;
             .skeleton {
-                min-height: 248px;
+                min-height: 150px;
                 background: #d0d0d0;
             }
         }
@@ -54,6 +54,9 @@
 }
 
 @media (max-width: 992px) {
+    .skeleton-inner-character .skeleton-card-container .skeleton-container .skeleton {
+        min-height: 240px !important;
+    }
     .skeleton-inner-character .skeleton-card-container {
         width: 33.33% !important;
     }
