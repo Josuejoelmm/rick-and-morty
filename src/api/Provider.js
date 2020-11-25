@@ -5,6 +5,7 @@ const Provider = ({ children }) => {
     const [characters, setCharacters] = useState([]);
     const [pagesInfo, setPagesInfo] = useState({});
     const [query, setQuery] = useState('');
+    
     useEffect(() => {
         RequestCharacter().then((res)=> {
             setCharacters(res.results);
