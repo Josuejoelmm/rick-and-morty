@@ -10,7 +10,7 @@ import Layout from './ui/layout/Layout';
 
 function App() {
 	return (
-		<BrowserRouter>
+		<BrowserRouter basename={process.env.PUBLIC_URL}>
 			<ReduxProvider store={store}>
 				<Provider>
 					<Layout>
